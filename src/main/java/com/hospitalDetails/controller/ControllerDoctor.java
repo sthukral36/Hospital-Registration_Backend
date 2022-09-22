@@ -30,28 +30,7 @@ public class ControllerDoctor {
 		return true;
 
 	}
-
-	@GetMapping("doctors/doctor/{name}")
-	public MappingJacksonValue getDoctorInformation(@PathVariable String name) {
-		Doctor doctor = service.showDoctorInformation(name);
-		SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter.filterOutAllExcept("name", "field", "patient_count");
-
-		FilterProvider filters = new SimpleFilterProvider().addFilter("DoctorFilter", filter);
-
-		MappingJacksonValue mapping = new MappingJacksonValue(doctor);
-
-		mapping.setFilters(filters);
-
-		return mapping;
-	}
-
-	@GetMapping("doctors/doc/{name}")
-	public Doctor getDoctorInfo(@PathVariable String name) {
-		Doctor doctor = service.showDoctorInformation(name);
-		return doctor;
-	}
- 
-
+//new comment
 	@GetMapping("doctors")
 	public MappingJacksonValue getListOfDoctor() {
 		List<Doctor> doctors = service.getDoctors();
